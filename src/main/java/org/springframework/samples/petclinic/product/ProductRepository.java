@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ProductRepository extends CrudRepository<Product, Integer> {
     List<Product> findAll();
 
-    @Query("SELECT p FROM Product p WHERE p.productType = ?1") // TODO check correct
+    @Query("SELECT p FROM Product p") // TODO Missing "where". Check correct
     List<ProductType> findAllProductTypes();
 
     Optional<Product> findById(int id);
@@ -17,4 +17,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     Product findByName(String name);
 
     Product save(Product p);
+
+    @Query("Select p.productType FROM Product p WHERE p.productType.name like %?1") // TODO check correct
+    ProductType findProductTypeByName(String name);
 }

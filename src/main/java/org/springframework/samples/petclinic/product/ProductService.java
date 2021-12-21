@@ -20,7 +20,7 @@ public class ProductService {
     }
 
     public ProductType getProductType(String typeName) {
-        return null;
+        return productRepository.findProductTypeByName(typeName);
     }
 
     public Product save(Product p) {
