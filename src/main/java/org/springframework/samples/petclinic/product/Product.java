@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "products") // TODO check needed?
 public class Product {
     @Id
     Integer id;
