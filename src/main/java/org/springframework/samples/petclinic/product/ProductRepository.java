@@ -5,12 +5,14 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-
-
-public interface ProductRepository {
+public interface ProductRepository extends CrudRepository<Product, Integer> {
     List<Product> findAll();
+
     List<ProductType> findAllProductTypes();
+
     Optional<Product> findById(int id);
+
     Product findByName(String name);
+
     Product save(Product p);
 }
