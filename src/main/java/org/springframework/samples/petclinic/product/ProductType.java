@@ -2,6 +2,8 @@ package org.springframework.samples.petclinic.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -14,14 +16,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "product_types") // TODO check needed?
+@Table(name = "product_types")
 public class ProductType {
-    @Id // TODO check correct import
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @NotNull // TODO check redundant
+    @NotNull
     @Length(min = 3, max = 50)
-
     @Column(unique = true)
     String name;
 }

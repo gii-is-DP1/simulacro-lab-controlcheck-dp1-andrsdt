@@ -3,6 +3,7 @@ package org.springframework.samples.petclinic.product;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,10 +22,10 @@ public class ProductService {
 
     public ProductType getProductType(String typeName) {
         return productRepository.findProductTypeByName(typeName);
-    }
+    };
 
     public Product save(Product p) {
-        return null;
+        return productRepository.save(p);
     }
 
 }

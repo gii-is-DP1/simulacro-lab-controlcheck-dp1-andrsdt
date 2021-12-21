@@ -20,11 +20,12 @@ public class ProductTypeFormatter implements Formatter<ProductType> {
 
     @Override
     public ProductType parse(String text, Locale locale) throws ParseException {
-        try {
-            // TODO do something with locale
-            return productService.getProductType(text);
-        } catch (Exception e) { // TODO specifiy exception type
+        // TODO do something with locale
+        ProductType pt = productService.getProductType(text);
+        if (pt == null) {
             throw new ParseException("Type " + text + " is not a valid product type", 0);
+        } else {
+            return pt;
         }
     }
 
