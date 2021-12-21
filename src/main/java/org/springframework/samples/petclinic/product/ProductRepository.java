@@ -18,6 +18,9 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     Product save(Product p);
 
+    @Query("SELECT p FROM Product p WHERE p.price < ?1") // TODO check correct
+    List<Product> findByPriceLessThan(Double price);
+
     @Query("Select p.productType FROM Product p WHERE p.productType.name like %?1") // TODO check correct
     ProductType findProductTypeByName(String name);
 }

@@ -16,7 +16,7 @@ public class ProductService {
     }
 
     public List<Product> getProductsCheaperThan(double price) {
-        return null;
+        return productRepository.findByPriceLessThan(price);
     }
 
     public ProductType getProductType(String typeName) {
