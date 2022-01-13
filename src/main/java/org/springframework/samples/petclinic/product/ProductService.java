@@ -2,8 +2,9 @@ package org.springframework.samples.petclinic.product;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,9 +23,9 @@ public class ProductService {
 
     public ProductType getProductType(String typeName) {
         return productRepository.findProductTypeByName(typeName);
-    };
+    }
 
-    public Product save(Product p) {
+    public Product save(@Valid Product p) {
         return productRepository.save(p);
     }
 
